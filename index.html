@@ -1,0 +1,1890 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Card Selling Playbook</title>
+  <meta name="description" content="Complete guide to selling sports cards and collectibles across eBay, Mercari, Facebook, Fanatics Collect, and more.">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    img { max-width: 100%; }
+    [hidden] { display: none !important; }
+
+    :root {
+      --bg: #fafaf8;
+      --surface: #ffffff;
+      --surface-alt: #f3f2ee;
+      --border: #e2e0d8;
+      --fg: #1a1a18;
+      --fg-muted: #6b6960;
+      --fg-dim: #9a9588;
+      --accent: #c04e2b;
+      --accent-light: #fdf0ec;
+      --accent-dark: #9a3d20;
+      --green: #2d7a3a;
+      --green-light: #eaf5ec;
+      --yellow: #b5890a;
+      --yellow-light: #fdf8e8;
+      --blue: #2563a0;
+      --blue-light: #eef4fa;
+      --nav-bg: #28261f;
+      --nav-fg: #d4d0c4;
+      --nav-active: #c04e2b;
+      --nav-hover: #3a372e;
+      color-scheme: light;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme="light"]) {
+        --bg: #141310;
+        --surface: #1e1d18;
+        --surface-alt: #26241e;
+        --border: #3a372e;
+        --fg: #e8e5dc;
+        --fg-muted: #a09b8e;
+        --fg-dim: #706b60;
+        --accent: #e0714e;
+        --accent-light: #2c1f18;
+        --accent-dark: #f09070;
+        --green: #5cb86c;
+        --green-light: #1a2c1e;
+        --yellow: #d4a820;
+        --yellow-light: #2a2410;
+        --blue: #5a9fd4;
+        --blue-light: #162030;
+        --nav-bg: #0e0d0a;
+        --nav-fg: #a09b8e;
+        --nav-active: #e0714e;
+        --nav-hover: #26241e;
+        color-scheme: dark;
+      }
+    }
+
+    :root[data-theme="dark"] {
+      --bg: #141310;
+      --surface: #1e1d18;
+      --surface-alt: #26241e;
+      --border: #3a372e;
+      --fg: #e8e5dc;
+      --fg-muted: #a09b8e;
+      --fg-dim: #706b60;
+      --accent: #e0714e;
+      --accent-light: #2c1f18;
+      --accent-dark: #f09070;
+      --green: #5cb86c;
+      --green-light: #1a2c1e;
+      --yellow: #d4a820;
+      --yellow-light: #2a2410;
+      --blue: #5a9fd4;
+      --blue-light: #162030;
+      --nav-bg: #0e0d0a;
+      --nav-fg: #a09b8e;
+      --nav-active: #e0714e;
+      --nav-hover: #26241e;
+      color-scheme: dark;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--fg);
+      font-family: 'IBM Plex Sans', system-ui, sans-serif;
+      line-height: 1.6;
+      margin: 0;
+      display: flex;
+      min-height: 100vh;
+      font-size: 14px;
+    }
+
+    /* Sidebar Navigation */
+    .sidebar {
+      width: 280px;
+      min-width: 280px;
+      background: var(--nav-bg);
+      color: var(--nav-fg);
+      padding: 24px 0;
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      overflow-y: auto;
+      border-right: 1px solid var(--border);
+    }
+
+    .sidebar-title {
+      font-family: 'Space Grotesk', system-ui, sans-serif;
+      font-size: 18px;
+      font-weight: 700;
+      padding: 0 20px 16px;
+      color: #fff;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      margin-bottom: 12px;
+      letter-spacing: -0.02em;
+    }
+
+    .sidebar-title span { color: var(--nav-active); }
+
+    .nav-section {
+      padding: 8px 0 4px;
+    }
+
+    .nav-section-label {
+      font-size: 10px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      padding: 0 20px;
+      color: rgba(255,255,255,0.3);
+      margin-bottom: 4px;
+    }
+
+    /* Checklists */
+    .checklist { list-style: none; padding: 0; margin: 0 0 16px; }
+
+    .checklist li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      padding: 10px 12px;
+      border-bottom: 1px solid var(--border);
+      font-size: 14px;
+      line-height: 1.5;
+      transition: opacity 0.2s;
+    }
+
+    .checklist li:last-child { border-bottom: none; }
+
+    .checklist li.checked { opacity: 0.5; }
+    .checklist li.checked .check-label { text-decoration: line-through; }
+
+    .checklist input[type="checkbox"] {
+      appearance: none;
+      -webkit-appearance: none;
+      width: 20px;
+      height: 20px;
+      min-width: 20px;
+      border: 2px solid var(--border);
+      border-radius: 4px;
+      background: var(--surface);
+      cursor: pointer;
+      margin-top: 1px;
+      position: relative;
+      transition: all 0.15s;
+    }
+
+    .checklist input[type="checkbox"]:checked {
+      background: var(--accent);
+      border-color: var(--accent);
+    }
+
+    .checklist input[type="checkbox"]:checked::after {
+      content: "\2713";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: #fff;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .check-label { flex: 1; min-width: 0; }
+    .check-sub { color: var(--fg-muted); font-size: 13px; display: block; margin-top: 2px; }
+
+    .progress-bar {
+      background: var(--surface-alt);
+      border-radius: 8px;
+      height: 8px;
+      overflow: hidden;
+      margin: 8px 0 16px;
+    }
+
+    .progress-fill {
+      background: var(--accent);
+      height: 100%;
+      border-radius: 8px;
+      transition: width 0.3s ease;
+    }
+
+    .progress-text {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--fg-muted);
+      font-family: 'IBM Plex Mono', monospace;
+    }
+
+    .checklist-group {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      margin: 16px 0;
+      overflow: hidden;
+    }
+
+    .checklist-group-header {
+      padding: 14px 16px;
+      background: var(--surface-alt);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .checklist-group-title {
+      font-family: 'Space Grotesk', system-ui, sans-serif;
+      font-weight: 600;
+      font-size: 15px;
+    }
+
+    .checklist-group-body { padding: 4px 8px; }
+
+    .later-badge {
+      font-size: 10px;
+      font-weight: 600;
+      padding: 2px 8px;
+      border-radius: 10px;
+      background: var(--surface-alt);
+      color: var(--fg-dim);
+      border: 1px solid var(--border);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .nav-link {
+      display: block;
+      padding: 7px 20px;
+      font-size: 13.5px;
+      color: var(--nav-fg);
+      text-decoration: none;
+      transition: background 0.15s, color 0.15s;
+      cursor: pointer;
+    }
+
+    .nav-link:hover { background: var(--nav-hover); color: #fff; }
+    .nav-link.active { color: var(--nav-active); background: var(--nav-hover); font-weight: 500; }
+
+    /* Mobile nav toggle */
+    .mobile-nav-toggle {
+      display: none;
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 100;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: var(--accent);
+      color: #fff;
+      border: none;
+      font-size: 20px;
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    }
+
+    /* Main content */
+    .main {
+      flex: 1;
+      min-width: 0;
+      padding: 32px;
+      max-width: 900px;
+    }
+
+    h1 {
+      font-family: 'Space Grotesk', system-ui, sans-serif;
+      font-size: 32px;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      margin: 0 0 8px;
+      text-wrap: balance;
+    }
+
+    .subtitle {
+      color: var(--fg-muted);
+      font-size: 15px;
+      margin-bottom: 32px;
+    }
+
+    h2 {
+      font-family: 'Space Grotesk', system-ui, sans-serif;
+      font-size: 24px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin: 48px 0 16px;
+      padding-top: 24px;
+      border-top: 2px solid var(--border);
+      text-wrap: balance;
+      scroll-margin-top: 24px;
+    }
+
+    h2:first-of-type { border-top: none; margin-top: 0; padding-top: 0; }
+
+    h3 {
+      font-family: 'Space Grotesk', system-ui, sans-serif;
+      font-size: 18px;
+      font-weight: 600;
+      margin: 28px 0 12px;
+      letter-spacing: -0.01em;
+      scroll-margin-top: 24px;
+    }
+
+    h4 {
+      font-size: 15px;
+      font-weight: 600;
+      margin: 20px 0 8px;
+      color: var(--fg);
+    }
+
+    p { margin: 0 0 12px; font-size: 15px; }
+
+    strong { font-weight: 600; }
+
+    /* Steps */
+    .steps {
+      counter-reset: step;
+      list-style: none;
+      padding: 0;
+      margin: 0 0 20px;
+    }
+
+    .steps li {
+      counter-increment: step;
+      position: relative;
+      padding: 10px 0 10px 44px;
+      font-size: 15px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .steps li:last-child { border-bottom: none; }
+
+    .steps li::before {
+      content: counter(step);
+      position: absolute;
+      left: 0;
+      top: 10px;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: var(--accent);
+      color: #fff;
+      font-family: 'Space Grotesk', system-ui, sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* Info boxes */
+    .box {
+      border-radius: 8px;
+      padding: 14px 16px;
+      margin: 16px 0;
+      font-size: 14px;
+    }
+
+    .box-tip { background: var(--green-light); border-left: 3px solid var(--green); }
+    .box-warn { background: var(--yellow-light); border-left: 3px solid var(--yellow); }
+    .box-info { background: var(--blue-light); border-left: 3px solid var(--blue); }
+    .box-accent { background: var(--accent-light); border-left: 3px solid var(--accent); }
+
+    .box-label {
+      font-weight: 600;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: 4px;
+    }
+
+    .box-tip .box-label { color: var(--green); }
+    .box-warn .box-label { color: var(--yellow); }
+    .box-info .box-label { color: var(--blue); }
+    .box-accent .box-label { color: var(--accent); }
+
+    /* Tables */
+    .table-wrap { overflow-x: auto; margin: 16px 0; }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 14px;
+    }
+
+    th {
+      text-align: left;
+      font-weight: 600;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      padding: 10px 12px;
+      background: var(--surface-alt);
+      border-bottom: 2px solid var(--border);
+      color: var(--fg-muted);
+      white-space: nowrap;
+    }
+
+    td {
+      padding: 10px 12px;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+    }
+
+    tr:last-child td { border-bottom: none; }
+
+    /* Platform cards */
+    .platform-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 20px;
+      margin: 16px 0;
+    }
+
+    .platform-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 12px;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .platform-name {
+      font-family: 'Space Grotesk', system-ui, sans-serif;
+      font-size: 20px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+
+    .platform-tag {
+      font-size: 11px;
+      font-weight: 600;
+      padding: 3px 10px;
+      border-radius: 20px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .tag-primary { background: var(--accent); color: #fff; }
+    .tag-secondary { background: var(--surface-alt); color: var(--fg-muted); border: 1px solid var(--border); }
+    .tag-new { background: var(--green); color: #fff; }
+    .tag-optional { background: var(--yellow-light); color: var(--yellow); border: 1px solid var(--yellow); }
+
+    .platform-meta {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+
+    .meta-item {
+      font-size: 13px;
+    }
+
+    .meta-label {
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: var(--fg-dim);
+      margin-bottom: 2px;
+    }
+
+    /* Collapsible sections */
+    details {
+      margin: 12px 0;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    summary {
+      padding: 12px 16px;
+      font-weight: 600;
+      font-size: 15px;
+      cursor: pointer;
+      background: var(--surface-alt);
+      list-style: none;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    summary::-webkit-details-marker { display: none; }
+
+    summary::before {
+      content: "\25B8";
+      font-size: 12px;
+      transition: transform 0.2s;
+      color: var(--fg-muted);
+    }
+
+    details[open] summary::before { transform: rotate(90deg); }
+
+    .details-body { padding: 16px; }
+
+    /* Fee calc */
+    .fee-example {
+      background: var(--surface-alt);
+      border-radius: 8px;
+      padding: 16px;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 13px;
+      margin: 12px 0;
+      line-height: 1.8;
+    }
+
+    .fee-line { display: flex; justify-content: space-between; }
+    .fee-total { border-top: 2px solid var(--border); margin-top: 4px; padding-top: 4px; font-weight: 600; }
+
+    /* Workflow diagram */
+    .workflow {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 20px;
+      margin: 20px 0;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 13px;
+      line-height: 1.8;
+      overflow-x: auto;
+      white-space: pre;
+    }
+
+    .wf-hub { color: var(--accent); font-weight: 600; }
+    .wf-arrow { color: var(--fg-dim); }
+    .wf-plat { color: var(--blue); }
+    .wf-note { color: var(--fg-dim); font-style: italic; }
+
+    /* Phase badges */
+    .phase-badge {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 4px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      margin-right: 6px;
+    }
+
+    .phase-1 { background: var(--green-light); color: var(--green); }
+    .phase-2 { background: var(--blue-light); color: var(--blue); }
+    .phase-3 { background: var(--accent-light); color: var(--accent); }
+
+    ul, ol { margin: 0 0 12px; padding-left: 24px; font-size: 15px; }
+    li { margin-bottom: 6px; }
+
+    code {
+      font-family: 'IBM Plex Mono', monospace;
+      background: var(--surface-alt);
+      padding: 1px 5px;
+      border-radius: 3px;
+      font-size: 13px;
+    }
+
+    @media (max-width: 768px) {
+      body { flex-direction: column; }
+
+      .sidebar {
+        position: fixed;
+        left: -300px;
+        top: 0;
+        z-index: 99;
+        width: 280px;
+        min-width: 0;
+        transition: left 0.3s;
+      }
+
+      .sidebar.open { left: 0; }
+
+      .mobile-nav-toggle { display: flex; align-items: center; justify-content: center; }
+
+      .main {
+        padding: 20px 16px;
+      }
+
+      h1 { font-size: 26px; }
+      h2 { font-size: 20px; }
+
+      .platform-meta { grid-template-columns: 1fr 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<nav class="sidebar" id="sidebar">
+  <div class="sidebar-title"><span>&#9830;</span> Card Selling Playbook</div>
+
+  <div class="nav-section">
+    <div class="nav-section-label">Action Plan</div>
+    <a class="nav-link" href="#checklist">Setup Checklists</a>
+  </div>
+
+  <div class="nav-section">
+    <div class="nav-section-label">Getting Started</div>
+    <a class="nav-link" href="#platforms">Platform Overview</a>
+    <a class="nav-link" href="#ebay">eBay Setup</a>
+    <a class="nav-link" href="#mercari">Mercari Setup</a>
+    <a class="nav-link" href="#facebook">Facebook Marketplace</a>
+    <a class="nav-link" href="#other-platforms">Other Platforms</a>
+  </div>
+
+  <div class="nav-section">
+    <div class="nav-section-label">Operations</div>
+    <a class="nav-link" href="#listing">Listing Workflow</a>
+    <a class="nav-link" href="#pricing">Pricing &amp; Research</a>
+    <a class="nav-link" href="#grading">Card Grading</a>
+    <a class="nav-link" href="#shipping">Shipping &amp; Packaging</a>
+  </div>
+
+  <div class="nav-section">
+    <div class="nav-section-label">Strategy</div>
+    <a class="nav-link" href="#sourcing">Sourcing Deals</a>
+    <a class="nav-link" href="#multichannel">Multi-Channel Hub</a>
+    <a class="nav-link" href="#taxes">Taxes &amp; Records</a>
+    <a class="nav-link" href="#supplies">Supplies Checklist</a>
+    <a class="nav-link" href="#market">Market Snapshot</a>
+  </div>
+</nav>
+
+<button class="mobile-nav-toggle" id="navToggle" aria-label="Toggle navigation">&#9776;</button>
+
+<main class="main">
+
+<h1>Sports Card Selling Playbook</h1>
+<p class="subtitle">Complete guide to selling sports cards and collectibles across eBay, Mercari, Facebook, Fanatics Collect, and more. Updated October 2026.</p>
+
+<!-- ============ SETUP CHECKLISTS ============ -->
+<h2 id="checklist">Setup Checklists</h2>
+<p>Start with eBay &mdash; it's the #1 platform for cards. Complete every step before moving to the next platform. Progress saves in your browser.</p>
+
+<!-- eBay Checklist - FULL DETAIL -->
+<div class="checklist-group" id="ebay-checklist">
+  <div class="checklist-group-header">
+    <div class="checklist-group-title">eBay Setup <span class="phase-badge phase-1" style="margin-left:8px;">Start Here</span></div>
+    <div class="progress-text" data-group="ebay">0 / 20</div>
+  </div>
+  <div class="progress-bar"><div class="progress-fill" data-group="ebay" style="width:0%"></div></div>
+  <div class="checklist-group-body">
+
+  <h4 style="margin:12px 4px 4px;color:var(--accent);">Account Setup</h4>
+  <ul class="checklist" data-group="ebay">
+    <li><input type="checkbox" id="eb1"><label class="check-label" for="eb1">Create eBay account (or sign into existing)<span class="check-sub">ebay.com &rarr; Register</span></label></li>
+    <li><input type="checkbox" id="eb2"><label class="check-label" for="eb2">Click "Sell" to trigger seller setup<span class="check-sub">eBay walks you through the initial seller onboarding</span></label></li>
+    <li><input type="checkbox" id="eb3"><label class="check-label" for="eb3">Complete identity verification<span class="check-sub">Name must match government-issued ID exactly. May request additional documents.</span></label></li>
+    <li><input type="checkbox" id="eb4"><label class="check-label" for="eb4">Link bank account for payouts<span class="check-sub">Account Settings &rarr; Payments. eBay sends two microdeposits to verify &mdash; enter those amounts back.</span></label></li>
+    <li><input type="checkbox" id="eb5"><label class="check-label" for="eb5">Submit W-9 tax information<span class="check-sub">SSN or EIN. Required before any payouts. eBay will prompt you.</span></label></li>
+    <li><input type="checkbox" id="eb6"><label class="check-label" for="eb6">Managed Payments is active<span class="check-sub">Should activate automatically. Confirm in Account Settings &rarr; Payments. No PayPal option.</span></label></li>
+  </ul>
+
+  <h4 style="margin:12px 4px 4px;color:var(--accent);">Business Policies</h4>
+  <ul class="checklist" data-group="ebay">
+    <li><input type="checkbox" id="eb7"><label class="check-label" for="eb7">Opt into Business Policies<span class="check-sub">Account Settings &rarr; Business Policies. If not visible, call eBay to enable.</span></label></li>
+    <li><input type="checkbox" id="eb8"><label class="check-label" for="eb8">Create shipping profile: "Raw Card &mdash; Envelope"<span class="check-sub">eBay Standard Envelope, 1-day handling. For raw singles under $20.</span></label></li>
+    <li><input type="checkbox" id="eb9"><label class="check-label" for="eb9">Create shipping profile: "Raw Card &mdash; Tracked"<span class="check-sub">USPS Ground Advantage, 1-day handling. For raw singles $20+.</span></label></li>
+    <li><input type="checkbox" id="eb10"><label class="check-label" for="eb10">Create shipping profile: "Graded Slab &mdash; Priority"<span class="check-sub">USPS Priority Mail, 1-day handling. For all graded cards.</span></label></li>
+    <li><input type="checkbox" id="eb11"><label class="check-label" for="eb11">Create return policy: 30-day, buyer pays return shipping<span class="check-sub">eBay gives search priority to listings with returns enabled.</span></label></li>
+    <li><input type="checkbox" id="eb12"><label class="check-label" for="eb12">Create payment policy: eBay checkout<span class="check-sub">Just confirms Managed Payments. One policy is usually enough.</span></label></li>
+  </ul>
+
+  <h4 style="margin:12px 4px 4px;color:var(--accent);">Seller Hub &amp; Tools</h4>
+  <ul class="checklist" data-group="ebay">
+    <li><input type="checkbox" id="eb13"><label class="check-label" for="eb13">Explore Seller Hub<span class="check-sub">ebay.com/sh &mdash; familiarize with Overview, Listings, Orders, Performance tabs.</span></label></li>
+    <li><input type="checkbox" id="eb14"><label class="check-label" for="eb14">Install LastSold Chrome extension<span class="check-sub">Free &mdash; overlays sold comps on eBay listing pages while you browse.</span></label></li>
+    <li><input type="checkbox" id="eb15"><label class="check-label" for="eb15">Bookmark 130point.com/cards<span class="check-sub">Free comp research &mdash; shows actual Best Offer accepted prices eBay hides.</span></label></li>
+  </ul>
+
+  <h4 style="margin:12px 4px 4px;color:var(--accent);">First Listings</h4>
+  <ul class="checklist" data-group="ebay">
+    <li><input type="checkbox" id="eb16"><label class="check-label" for="eb16">Sort your collection into tiers<span class="check-sub">High-value ($20+), mid-range ($5&ndash;$20), bulk (&lt;$5). Start listing high-value first.</span></label></li>
+    <li><input type="checkbox" id="eb17"><label class="check-label" for="eb17">Photograph your first 10 cards<span class="check-sub">Lightbox + tripod. Front, back, corner close-ups. 1600px+ on the long side.</span></label></li>
+    <li><input type="checkbox" id="eb18"><label class="check-label" for="eb18">Research comps for first 10 cards<span class="check-sub">eBay Sold Listings + 130point.com. Note price range for each card.</span></label></li>
+    <li><input type="checkbox" id="eb19"><label class="check-label" for="eb19">List first card on eBay<span class="check-sub">Follow the 10-step listing workflow in the guide. BIN + Best Offer.</span></label></li>
+    <li><input type="checkbox" id="eb20"><label class="check-label" for="eb20">List remaining 9 cards<span class="check-sub">Batch it: all photos first, then all listings. Try the Magical Bulk Listing tool.</span></label></li>
+  </ul>
+
+  </div>
+</div>
+
+<!-- Supplies Checklist -->
+<div class="checklist-group" id="supplies-checklist">
+  <div class="checklist-group-header">
+    <div class="checklist-group-title">Supplies to Buy</div>
+    <div class="progress-text" data-group="supplies">0 / 10</div>
+  </div>
+  <div class="progress-bar"><div class="progress-fill" data-group="supplies" style="width:0%"></div></div>
+  <div class="checklist-group-body">
+  <ul class="checklist" data-group="supplies">
+    <li><input type="checkbox" id="sp1"><label class="check-label" for="sp1">Penny sleeves (1,000-pack)<span class="check-sub">Temu or Amazon. Must be acid-free, PVC-free. Ultra PRO is the benchmark.</span></label></li>
+    <li><input type="checkbox" id="sp2"><label class="check-label" for="sp2">Top loaders 35pt (200-pack)<span class="check-sub">Covers 85&ndash;90% of standard cards. Get 55pt and 75pt later for thick cards.</span></label></li>
+    <li><input type="checkbox" id="sp3"><label class="check-label" for="sp3">Team bags &mdash; resealable<span class="check-sub">For sealing top loaders before shipping.</span></label></li>
+    <li><input type="checkbox" id="sp4"><label class="check-label" for="sp4">Bubble mailers &mdash; 4x8" and 6x9" (50-pack each)<span class="check-sub">4x8 for single cards, 6x9 for multi-card shipments.</span></label></li>
+    <li><input type="checkbox" id="sp5"><label class="check-label" for="sp5">Painter's tape (blue)<span class="check-sub">Low-tack &mdash; won't damage cards. Use for everything.</span></label></li>
+    <li><input type="checkbox" id="sp6"><label class="check-label" for="sp6">"Do Not Bend" stamps or stickers<span class="check-sub">Apply to envelope/mailer exteriors.</span></label></li>
+    <li><input type="checkbox" id="sp7"><label class="check-label" for="sp7">#10 white envelopes (for eBay Standard Envelope)<span class="check-sub">Plain envelopes for sub-$20 raw card shipments.</span></label></li>
+    <li><input type="checkbox" id="sp8"><label class="check-label" for="sp8">Digital postal scale<span class="check-sub">Essential for accurate shipping costs. ~$10&ndash;$15 on Amazon.</span></label></li>
+    <li><input type="checkbox" id="sp9"><label class="check-label" for="sp9">Cardboard backing material<span class="check-sub">Cut from saved boxes or buy pre-cut inserts. For cardboard sandwiches.</span></label></li>
+    <li><input type="checkbox" id="sp10"><label class="check-label" for="sp10">Order free USPS Priority Mail supplies<span class="check-sub">usps.com &rarr; Order Free Supplies. Boxes and envelopes delivered free for Priority shipments.</span></label></li>
+  </ul>
+  </div>
+</div>
+
+<!-- Mercari Checklist - COMPACT -->
+<div class="checklist-group" id="mercari-checklist">
+  <div class="checklist-group-header">
+    <div class="checklist-group-title">Mercari Setup <span class="later-badge">After eBay</span></div>
+    <div class="progress-text" data-group="mercari">0 / 7</div>
+  </div>
+  <div class="progress-bar"><div class="progress-fill" data-group="mercari" style="width:0%"></div></div>
+  <div class="checklist-group-body">
+  <ul class="checklist" data-group="mercari">
+    <li><input type="checkbox" id="mc1"><label class="check-label" for="mc1">Download Mercari app + create account</label></li>
+    <li><input type="checkbox" id="mc2"><label class="check-label" for="mc2">Verify phone number (U.S. mobile, no VoIP)</label></li>
+    <li><input type="checkbox" id="mc3"><label class="check-label" for="mc3">Add profile photo and bio</label></li>
+    <li><input type="checkbox" id="mc4"><label class="check-label" for="mc4">Add credit/debit card</label></li>
+    <li><input type="checkbox" id="mc5"><label class="check-label" for="mc5">Link bank account for direct deposit payouts</label></li>
+    <li><input type="checkbox" id="mc6"><label class="check-label" for="mc6">Sign up for Vendoo ($8.99/mo) for cross-listing<span class="check-sub">List once on eBay, one-click cross-list to Mercari.</span></label></li>
+    <li><input type="checkbox" id="mc7"><label class="check-label" for="mc7">Cross-list your first 10 eBay listings to Mercari<span class="check-sub">Price 10&ndash;15% below eBay comps. Mercari buyers expect deals.</span></label></li>
+  </ul>
+  </div>
+</div>
+
+<!-- Facebook Checklist - COMPACT -->
+<div class="checklist-group" id="fb-checklist">
+  <div class="checklist-group-header">
+    <div class="checklist-group-title">Facebook Marketplace <span class="later-badge">After Mercari</span></div>
+    <div class="progress-text" data-group="fb">0 / 6</div>
+  </div>
+  <div class="progress-bar"><div class="progress-fill" data-group="fb" style="width:0%"></div></div>
+  <div class="checklist-group-body">
+  <ul class="checklist" data-group="fb">
+    <li><input type="checkbox" id="fb1"><label class="check-label" for="fb1">Navigate to Facebook Marketplace, create first listing</label></li>
+    <li><input type="checkbox" id="fb2"><label class="check-label" for="fb2">Set up Commerce Profile (name + payout info for shipped items)</label></li>
+    <li><input type="checkbox" id="fb3"><label class="check-label" for="fb3">Link bank account or PayPal for shipped sale payouts</label></li>
+    <li><input type="checkbox" id="fb4"><label class="check-label" for="fb4">Join 5&ndash;10 sports card BST groups<span class="check-sub">Search "sports cards BST", "baseball cards for sale", "[your city] sports cards"</span></label></li>
+    <li><input type="checkbox" id="fb5"><label class="check-label" for="fb5">Create a Pirate Ship account for shipping labels<span class="check-sub">Cheapest rates for non-eBay shipments. FB prepaid labels are gone.</span></label></li>
+    <li><input type="checkbox" id="fb6"><label class="check-label" for="fb6">Post your first card for sale in a BST group</label></li>
+  </ul>
+  </div>
+</div>
+
+<!-- Fanatics Collect Checklist - COMPACT -->
+<div class="checklist-group" id="fan-checklist">
+  <div class="checklist-group-header">
+    <div class="checklist-group-title">Fanatics Collect <span class="later-badge">After Facebook</span></div>
+    <div class="progress-text" data-group="fan">0 / 4</div>
+  </div>
+  <div class="progress-bar"><div class="progress-fill" data-group="fan" style="width:0%"></div></div>
+  <div class="checklist-group-body">
+  <ul class="checklist" data-group="fan">
+    <li><input type="checkbox" id="fn1"><label class="check-label" for="fn1">Create Fanatics Collect account<span class="check-sub">Only 6% fees (or 0% with FanCash payouts)</span></label></li>
+    <li><input type="checkbox" id="fn2"><label class="check-label" for="fn2">Complete seller verification</label></li>
+    <li><input type="checkbox" id="fn3"><label class="check-label" for="fn3">List your top graded cards<span class="check-sub">Fanatics Collect has direct PSA integration &mdash; great for graded.</span></label></li>
+    <li><input type="checkbox" id="fn4"><label class="check-label" for="fn4">Decide: cash payouts (6% fee) or FanCash (0% fee)<span class="check-sub">FanCash can be used on Fanatics purchases. Cash hits your bank.</span></label></li>
+  </ul>
+  </div>
+</div>
+
+<!-- Other Platforms Checklist - COMPACT -->
+<div class="checklist-group" id="other-checklist">
+  <div class="checklist-group-header">
+    <div class="checklist-group-title">Other Platforms <span class="later-badge">Phase 2+</span></div>
+    <div class="progress-text" data-group="other">0 / 6</div>
+  </div>
+  <div class="progress-bar"><div class="progress-fill" data-group="other" style="width:0%"></div></div>
+  <div class="checklist-group-body">
+  <ul class="checklist" data-group="other">
+    <li><input type="checkbox" id="ot1"><label class="check-label" for="ot1">MySlabs &mdash; create account, list graded slabs<span class="check-sub">~3&ndash;6.5% fees. Small audience but lowest fees for graded.</span></label></li>
+    <li><input type="checkbox" id="ot2"><label class="check-label" for="ot2">Whatnot &mdash; apply for seller approval<span class="check-sub">Live streaming auctions. &lt;50% approval rate. Need camera comfort.</span></label></li>
+    <li><input type="checkbox" id="ot3"><label class="check-label" for="ot3">Etsy &mdash; create shop for vintage cards and memorabilia<span class="check-sub">$0.20/listing. Different buyer demographic &mdash; nostalgic/gift shoppers.</span></label></li>
+    <li><input type="checkbox" id="ot4"><label class="check-label" for="ot4">TikTok Shop &mdash; set up if making card content<span class="check-sub">Pairs with TikTok videos. Good for trending cards, impulse buys.</span></label></li>
+    <li><input type="checkbox" id="ot5"><label class="check-label" for="ot5">COMC &mdash; ship bulk mid-range for consignment<span class="check-sub">$0.65/card + 5%. ~16 week processing. Truly hands-off.</span></label></li>
+    <li><input type="checkbox" id="ot6"><label class="check-label" for="ot6">StockX Live &mdash; early adopt (launched Oct 2026)<span class="check-sub">Brand new for cards. Low competition while platform grows.</span></label></li>
+  </ul>
+  </div>
+</div>
+
+<!-- ============ PLATFORM OVERVIEW ============ -->
+<h2 id="platforms">Platform Overview</h2>
+<p>Where you sell determines your audience, fees, and effort. Here's the priority order based on reach, fees, and card-buyer concentration.</p>
+
+<div class="table-wrap">
+<table>
+  <tr>
+    <th>Platform</th><th>Fees</th><th>Best For</th><th>Priority</th>
+  </tr>
+  <tr>
+    <td><strong>eBay</strong></td>
+    <td>~13.25% + $0.30&ndash;0.40</td>
+    <td>Everything &mdash; largest card audience</td>
+    <td><span class="phase-badge phase-1">Must Have</span></td>
+  </tr>
+  <tr>
+    <td><strong>Fanatics Collect</strong></td>
+    <td>6% (or 0% FanCash)</td>
+    <td>Graded cards, quality singles</td>
+    <td><span class="phase-badge phase-1">Must Have</span></td>
+  </tr>
+  <tr>
+    <td><strong>Mercari</strong></td>
+    <td>~10%</td>
+    <td>Quick sales, $5&ndash;$50 cards</td>
+    <td><span class="phase-badge phase-2">Secondary</span></td>
+  </tr>
+  <tr>
+    <td><strong>FB Marketplace</strong></td>
+    <td>0% local / ~5% shipped</td>
+    <td>Bulk lots, local pickup</td>
+    <td><span class="phase-badge phase-2">Secondary</span></td>
+  </tr>
+  <tr>
+    <td><strong>MySlabs</strong></td>
+    <td>~3&ndash;6.5%</td>
+    <td>Graded slabs only</td>
+    <td><span class="phase-badge phase-3">Optional</span></td>
+  </tr>
+  <tr>
+    <td><strong>Whatnot</strong></td>
+    <td>~11&ndash;12%</td>
+    <td>Live streaming auctions</td>
+    <td><span class="phase-badge phase-3">Optional</span></td>
+  </tr>
+  <tr>
+    <td><strong>COMC</strong></td>
+    <td>$0.65/card + 5%</td>
+    <td>Hands-off bulk consignment</td>
+    <td><span class="phase-badge phase-3">Optional</span></td>
+  </tr>
+  <tr>
+    <td><strong>SportLots</strong></td>
+    <td>15&ndash;75% tiered</td>
+    <td>Commons and base cards</td>
+    <td><span class="phase-badge phase-3">Optional</span></td>
+  </tr>
+  <tr>
+    <td><strong>Etsy</strong></td>
+    <td>6.5% + $0.20 listing</td>
+    <td>Vintage cards, memorabilia, bundles</td>
+    <td><span class="phase-badge phase-3">Optional</span></td>
+  </tr>
+  <tr>
+    <td><strong>TikTok Shop</strong></td>
+    <td>Varies by category</td>
+    <td>Trending cards, impulse buys</td>
+    <td><span class="phase-badge phase-2">Secondary</span></td>
+  </tr>
+  <tr>
+    <td><strong>Vinted</strong></td>
+    <td>~5% buyer protection</td>
+    <td>EU market, casual collectors</td>
+    <td><span class="phase-badge phase-3">Restricted API</span></td>
+  </tr>
+  <tr>
+    <td><strong>Depop</strong></td>
+    <td>~10%</td>
+    <td>Younger demo, trendy cards</td>
+    <td><span class="phase-badge phase-3">Restricted API</span></td>
+  </tr>
+  <tr>
+    <td><strong>Poshmark</strong></td>
+    <td>20% (over $15)</td>
+    <td>Manual/CSV only</td>
+    <td><span class="phase-badge phase-3">Manual Only</span></td>
+  </tr>
+</table>
+</div>
+
+<div class="box box-tip">
+  <div class="box-label">Key Discovery</div>
+  <strong>Fanatics Collect</strong> launched with only 6% fees (vs eBay's 13.25%). If you accept FanCash payouts instead of cash, fees drop to 0%. Direct PSA submission integration. Growing fast &mdash; backed by Fanatics' licensing deals with MLB, NFL, NBA.
+</div>
+
+<div class="box box-warn">
+  <div class="box-label">Skip</div>
+  <strong>Amazon</strong> &mdash; Sports Collectibles is a gated/restricted category. Higher fees, wrong audience, zero discovery for cards. Only useful for buying supplies.
+  <br><strong>TCGPlayer</strong> &mdash; Primarily Pokemon/Magic/Yu-Gi-Oh. Doesn't really host sports cards.
+</div>
+
+<div class="box box-info">
+  <div class="box-label">API Access Reality Check</div>
+  Not all platforms are equally automatable. <strong>eBay, Shopify, Etsy, TikTok Shop</strong> have full public APIs for listing/inventory/orders. <strong>Vinted</strong> has a Pro API but access is restricted to allowlisted businesses. <strong>Depop</strong> has a capable API but it's private (requires partnership). <strong>Poshmark</strong> prohibits automated scraping &mdash; CSV/manual workflows only. <strong>Facebook Marketplace</strong> has no general-purpose seller API. Plan your automation strategy around these realities.
+</div>
+
+
+<!-- ============ EBAY SETUP ============ -->
+<h2 id="ebay">eBay Setup</h2>
+
+<h3>Account Creation</h3>
+<ol class="steps">
+  <li>Go to <strong>ebay.com</strong> &rarr; Register (or sign in to existing account)</li>
+  <li>Click <strong>"Sell"</strong> &mdash; eBay prompts first-time seller setup</li>
+  <li><strong>Identity verification</strong> &mdash; name must match your government-issued ID exactly. May request additional documents.</li>
+  <li><strong>Link bank account</strong> &mdash; Account Settings &rarr; Payments. eBay sends two microdeposits to verify.</li>
+  <li><strong>Tax info (W-9)</strong> &mdash; provide SSN or EIN. Required before payouts.</li>
+  <li><strong>Managed Payments</strong> activates automatically &mdash; no PayPal option. All funds route through eBay &rarr; your bank.</li>
+</ol>
+
+<div class="box box-warn">
+  <div class="box-label">New Seller Hold</div>
+  Plan for up to <strong>21-day payout holds</strong> on your first sales. Uploading tracking promptly shortens holds to ~3 business days after delivery. Holds reduce after ~90 days, 25+ transactions, $250+ total sales.
+</div>
+
+<h3>Store Subscription Tiers</h3>
+<div class="table-wrap">
+<table>
+  <tr><th>Tier</th><th>Monthly</th><th>Annual</th><th>Free Listings</th><th>FVF (Cards)</th></tr>
+  <tr><td>No Store</td><td>$0</td><td>&mdash;</td><td>250</td><td>13.25%</td></tr>
+  <tr><td>Starter</td><td>$7.95</td><td>$4.95/mo</td><td>250</td><td>13.25%</td></tr>
+  <tr><td>Basic</td><td>$27.95</td><td>$21.95/mo</td><td>1,000</td><td>~12.35%</td></tr>
+  <tr><td>Premium</td><td>$74.95</td><td>$59.95/mo</td><td>10,000</td><td>~12.35%</td></tr>
+  <tr><td>Anchor</td><td>$349.95</td><td>$299.95/mo</td><td>25,000</td><td>~12.35%</td></tr>
+</table>
+</div>
+
+<div class="box box-info">
+  <div class="box-label">Recommendation</div>
+  Start with <strong>No Store</strong>. Upgrade to Basic when you consistently have 250+ active listings. The 0.9% FVF discount needs ~$2,440/mo in sales to cover the $21.95/mo subscription on fee savings alone &mdash; but the 1,000 free listings (vs $0.35 each) add up fast.
+</div>
+
+<h3>Fee Breakdown</h3>
+<div class="fee-example">
+  <div style="margin-bottom:8px;font-weight:600;font-family:'Space Grotesk',sans-serif;">Example: $50 card sale (No Store, domestic)</div>
+  <div class="fee-line"><span>Sale price</span><span>$50.00</span></div>
+  <div class="fee-line"><span>Final value fee (13.25%)</span><span>-$6.63</span></div>
+  <div class="fee-line"><span>Per-order fee</span><span>-$0.40</span></div>
+  <div class="fee-line fee-total"><span>Net before shipping</span><span>$42.97</span></div>
+  <div style="color:var(--fg-dim);margin-top:4px;">Effective fee rate: 14.1%</div>
+</div>
+
+<h3>Business Policies (Reusable Templates)</h3>
+<p>Set up at: My eBay &rarr; Account &rarr; Business Policies. Create these templates so every listing auto-fills:</p>
+
+<h4>Shipping Profiles</h4>
+<div class="table-wrap">
+<table>
+  <tr><th>Profile Name</th><th>Service</th><th>Use For</th></tr>
+  <tr><td>Raw Card &mdash; Envelope</td><td>eBay Standard Envelope, 1-day handling</td><td>Raw singles under $20</td></tr>
+  <tr><td>Raw Card &mdash; Tracked</td><td>USPS Ground Advantage, 1-day handling</td><td>Raw singles $20+</td></tr>
+  <tr><td>Graded Slab &mdash; Priority</td><td>USPS Priority Mail, 1-day handling</td><td>All graded cards</td></tr>
+  <tr><td>Bulk Lot &mdash; Ground</td><td>USPS Ground Advantage, 2-day handling</td><td>Multi-card lots</td></tr>
+</table>
+</div>
+
+<h4>Return Policy</h4>
+<p><strong>30-day returns, buyer pays return shipping.</strong> eBay gives search priority to listings with returns enabled. Note: eBay allows "Item Not As Described" returns regardless of your policy.</p>
+
+<h3>Seller Hub Overview</h3>
+<p>Your central dashboard at <code>ebay.com/sh</code>. Key sections:</p>
+<ul>
+  <li><strong>Overview</strong> &mdash; Sales, orders awaiting shipment, traffic, performance dashboard</li>
+  <li><strong>Orders</strong> &mdash; Print labels, upload tracking, handle returns</li>
+  <li><strong>Listings</strong> &mdash; Create/edit/end, bulk tool, CSV upload, drafts</li>
+  <li><strong>Marketing</strong> &mdash; Promoted Listings, coupons, volume pricing</li>
+  <li><strong>Performance</strong> &mdash; Defect rate, late shipment rate, seller health</li>
+  <li><strong>Payments</strong> &mdash; Payout schedule, fees, holds</li>
+</ul>
+
+
+<!-- ============ MERCARI ============ -->
+<h2 id="mercari">Mercari Setup</h2>
+
+<h3>Account Creation</h3>
+<ol class="steps">
+  <li>Download <strong>Mercari app</strong> (iOS/Android) or go to mercari.com</li>
+  <li><strong>Sign up</strong> with email, Google, Facebook, or Apple ID</li>
+  <li><strong>Phone verification</strong> &mdash; U.S. mobile number required (no VoIP). One account per person. Must be 18+</li>
+  <li>Add <strong>profile photo and bio</strong> for buyer trust</li>
+  <li>Add a <strong>credit or debit card</strong> (may be required before listing)</li>
+  <li><strong>Link bank account</strong> for direct deposit, or debit card for Instant Pay</li>
+  <li><strong>ID verification</strong> may trigger for $500+ items &mdash; complete early to avoid payout delays</li>
+</ol>
+
+<h3>Fees</h3>
+<div class="fee-example">
+  <div style="margin-bottom:8px;font-weight:600;font-family:'Space Grotesk',sans-serif;">Mercari fee structure</div>
+  <div class="fee-line"><span>Selling fee</span><span>10% flat</span></div>
+  <div class="fee-line"><span>Listing fees</span><span>$0 (free)</span></div>
+  <div class="fee-line"><span>Buyer protection fee (paid by buyer)</span><span>~3.6%</span></div>
+  <div style="color:var(--fg-dim);margin-top:8px;">Processing appears rolled into the 10% as of 2026</div>
+</div>
+
+<h3>Listing Process</h3>
+<ol class="steps">
+  <li>Tap <strong>"Sell"</strong> button</li>
+  <li><strong>Photos</strong> &mdash; up to 12. Front, back, corners/edges. Use your lightbox.</li>
+  <li><strong>Title</strong> &mdash; keyword-rich: <code>[Year] [Brand] [Set] [Player] [Card #] [Grade]</code></li>
+  <li><strong>Description</strong> &mdash; condition, flaws, year, brand, set, card number</li>
+  <li><strong>Category</strong> &mdash; Sports &rarr; Trading Cards</li>
+  <li><strong>Price</strong> &mdash; factor in 10% fee. Enable "Offers" for negotiation</li>
+  <li><strong>Shipping</strong> &mdash; prepaid label (Mercari handles) or ship on your own</li>
+</ol>
+
+<h3>Key Features</h3>
+<ul>
+  <li><strong>Smart Pricing</strong> &mdash; auto-adjusts price based on demand (never below your floor)</li>
+  <li><strong>Offers to Likers</strong> &mdash; private 10%+ discount to people who liked your item. Best for items sitting 30+ days</li>
+  <li><strong>Payouts</strong> &mdash; Standard ACH: 2&ndash;5 business days (free). Instant Pay to debit: ~$3 fee, funds in minutes</li>
+  <li><strong>Auto-complete</strong> &mdash; if buyer doesn't rate within ~3 days, transaction auto-completes and you're paid</li>
+</ul>
+
+<div class="box box-tip">
+  <div class="box-label">Mercari Strategy</div>
+  Price <strong>10&ndash;15% below eBay comps</strong> &mdash; Mercari buyers expect deals. Relist items every 2 weeks to reset search algorithm visibility. Use all 12 photo slots.
+</div>
+
+
+<!-- ============ FACEBOOK ============ -->
+<h2 id="facebook">Facebook Marketplace</h2>
+
+<h3>Setup</h3>
+<ol class="steps">
+  <li>Use your <strong>personal Facebook account</strong> &mdash; navigate to Marketplace</li>
+  <li>Click <strong>"Create new listing"</strong> &rarr; "Item for sale"</li>
+  <li>Set up <strong>Commerce Profile</strong> when prompted (name, payout info for shipped items)</li>
+  <li><strong>Link bank account or PayPal</strong> for payouts on shipped sales</li>
+</ol>
+
+<h3>Fees</h3>
+<ul>
+  <li><strong>Local pickup:</strong> 0% &mdash; completely free</li>
+  <li><strong>Shipped items (via Checkout):</strong> ~5% ($0.40 minimum)</li>
+  <li><strong>Listing fees:</strong> None</li>
+</ul>
+
+<h3>The Real Play: BST Groups</h3>
+<p>Join 5&ndash;10 active sports card Buy/Sell/Trade groups. Search for "sports cards BST", "baseball cards for sale", "[your city] sports cards".</p>
+<ul>
+  <li>Read group rules first &mdash; most require price, condition, shipping terms</li>
+  <li>Post format: clear photo + "FS" (For Sale) + price + shipping info</li>
+  <li>Payment: PayPal Goods &amp; Services (buyer protection) or cash for local</li>
+  <li><strong>No platform fees</strong> if payment is handled outside FB Checkout</li>
+</ul>
+
+<div class="box box-warn">
+  <div class="box-label">Important Change</div>
+  <strong>Prepaid shipping labels are gone</strong> as of Feb 2025. You must buy your own label (use Pirate Ship for cheapest rates). Mark as shipped + enter tracking within 3 days or Facebook auto-cancels the order. Payouts take 2&ndash;3 weeks.
+</div>
+
+<div class="box box-accent">
+  <div class="box-label">Safety</div>
+  Meet at police stations or banks for local sales. Never accept Zelle, CashApp, or PayPal Friends &amp; Family from strangers (no protection). Ship only to the address on the PayPal G&amp;S payment.
+</div>
+
+
+<!-- ============ OTHER PLATFORMS ============ -->
+<h2 id="other-platforms">Other Platforms</h2>
+
+<div class="platform-card">
+  <div class="platform-header">
+    <div class="platform-name">Fanatics Collect</div>
+    <span class="platform-tag tag-new">New &mdash; Low Fees</span>
+  </div>
+  <div class="platform-meta">
+    <div class="meta-item"><div class="meta-label">Fees</div>6% BIN / 0% Auction hammer / 0% with FanCash</div>
+    <div class="meta-item"><div class="meta-label">Best For</div>Graded cards, quality singles</div>
+    <div class="meta-item"><div class="meta-label">Special</div>Direct PSA submission integration</div>
+  </div>
+  <p>Fanatics owns licensing for MLB, NFL, NBA cards. Their marketplace charges only 6% on Buy Now listings priced within 120% of market value (12% above that). Accept FanCash payouts instead of cash and fees drop to <strong>0%</strong>. Auctions: 0% on hammer price plus 2&ndash;15% bonus on sales $50+.</p>
+</div>
+
+<div class="platform-card">
+  <div class="platform-header">
+    <div class="platform-name">Whatnot</div>
+    <span class="platform-tag tag-optional">If On Camera</span>
+  </div>
+  <div class="platform-meta">
+    <div class="meta-item"><div class="meta-label">Fees</div>~8% + 2.9% + $0.30 processing</div>
+    <div class="meta-item"><div class="meta-label">Format</div>Live streaming auctions only</div>
+    <div class="meta-item"><div class="meta-label">Approval</div>Must apply &mdash; &lt;50% accepted</div>
+  </div>
+  <p>Live-stream auction platform. Show cards on camera, buyers bid in real time. Great for moving volume fast (bulk, breaks). Requires 1&ndash;2+ hour live sessions and comfort on camera.</p>
+</div>
+
+<div class="platform-card">
+  <div class="platform-header">
+    <div class="platform-name">StockX Live</div>
+    <span class="platform-tag tag-new">Just Launched Oct 2026</span>
+  </div>
+  <div class="platform-meta">
+    <div class="meta-item"><div class="meta-label">Format</div>Live auctions &mdash; graded, raw, sealed, breaks</div>
+    <div class="meta-item"><div class="meta-label">Status</div>Launched sports cards Oct 8, 2026</div>
+  </div>
+  <p>Brand new for cards &mdash; early adoption opportunity while competition is low. Live auction format with seller following, show reminders, automatic max bids. Card-breaking tools in development.</p>
+</div>
+
+<div class="platform-card">
+  <div class="platform-header">
+    <div class="platform-name">COMC</div>
+    <span class="platform-tag tag-secondary">Consignment</span>
+  </div>
+  <div class="platform-meta">
+    <div class="meta-item"><div class="meta-label">Fees</div>~$0.65/card intake + 5% on sale</div>
+    <div class="meta-item"><div class="meta-label">Processing</div>~16 weeks standard</div>
+  </div>
+  <p>Ship your cards to COMC. They photograph, list, store, and ship when sold. You set the price. Intake fees are sunk cost on unsold cards. Best for hundreds of $2&ndash;$200 singles you'd never list individually. Truly hands-off.</p>
+</div>
+
+<div class="platform-card">
+  <div class="platform-header">
+    <div class="platform-name">MySlabs</div>
+    <span class="platform-tag tag-secondary">Graded Only</span>
+  </div>
+  <div class="platform-meta">
+    <div class="meta-item"><div class="meta-label">Fees</div>~3&ndash;6.5%</div>
+    <div class="meta-item"><div class="meta-label">Audience</div>Small but growing, strict vetting</div>
+  </div>
+  <p>Card-specific marketplace for graded slabs. Among the lowest fees in the hobby. Small buyer pool &mdash; list alongside eBay, not instead of it.</p>
+</div>
+
+
+<div class="platform-card">
+  <div class="platform-header">
+    <div class="platform-name">Etsy</div>
+    <span class="platform-tag tag-secondary">Vintage &amp; Memorabilia</span>
+  </div>
+  <div class="platform-meta">
+    <div class="meta-item"><div class="meta-label">Fees</div>6.5% transaction + 3% + $0.25 processing + $0.20/listing</div>
+    <div class="meta-item"><div class="meta-label">API</div>Open API v3 &mdash; full public access</div>
+    <div class="meta-item"><div class="meta-label">Best For</div>Vintage cards, memorabilia, curated lots</div>
+  </div>
+  <p>Good for vintage cards and curated "gift" lots. Different buyer demographic &mdash; people searching for nostalgic/gift items rather than pure collectors. Etsy's taxonomy mapping is dynamic (properties change by category). $0.20 listing fee per item means don't list sub-$5 cards here.</p>
+</div>
+
+<div class="platform-card">
+  <div class="platform-header">
+    <div class="platform-name">TikTok Shop</div>
+    <span class="platform-tag tag-secondary">Trending &amp; Impulse</span>
+  </div>
+  <div class="platform-meta">
+    <div class="meta-item"><div class="meta-label">Fees</div>Varies by category</div>
+    <div class="meta-item"><div class="meta-label">API</div>TikTok Shop Open API &mdash; full access</div>
+    <div class="meta-item"><div class="meta-label">Best For</div>Trending cards, impulse buys, younger audience</div>
+  </div>
+  <p>Pairs with content creation. If you're making card-related TikTok content, Shop lets viewers buy directly. Product-category attributes, SKUs, images, and order workflows are all API-driven. Good for affordable trending cards ($5&ndash;$30) where impulse buying works.</p>
+</div>
+
+<div class="platform-card">
+  <div class="platform-header">
+    <div class="platform-name">Vinted</div>
+    <span class="platform-tag tag-optional">Restricted Access</span>
+  </div>
+  <div class="platform-meta">
+    <div class="meta-item"><div class="meta-label">Fees</div>~5% buyer protection fee (seller pays nothing)</div>
+    <div class="meta-item"><div class="meta-label">API</div>Pro Integrations API &mdash; allowlisted businesses only</div>
+    <div class="meta-item"><div class="meta-label">Allocation</div>Initial 500 active-item slots</div>
+  </div>
+  <p>Large EU marketplace. Has a serious Pro API (inventory, orders, shipment labels, webhooks) but access is gated &mdash; you must be an allowlisted Vinted Pro business. No seller fees is attractive. Worth pursuing if you want EU reach, but treat it as a Phase 2/3 play requiring business-development effort.</p>
+</div>
+
+<div class="platform-card">
+  <div class="platform-header">
+    <div class="platform-name">Depop</div>
+    <span class="platform-tag tag-optional">Partnership Required</span>
+  </div>
+  <div class="platform-meta">
+    <div class="meta-item"><div class="meta-label">Fees</div>~10%</div>
+    <div class="meta-item"><div class="meta-label">API</div>Private REST Selling API &mdash; requires partnership</div>
+    <div class="meta-item"><div class="meta-label">Audience</div>Gen Z, trend-driven</div>
+  </div>
+  <p>Has a surprisingly capable API (products, orders, offers, sandbox, webhooks) but it's explicitly private and requires a partnership agreement. Good for trendy modern cards if you can get access. Manual listing works without API access. Depop warns that webhooks are best-effort &mdash; always reconcile periodically.</p>
+</div>
+
+<div class="platform-card">
+  <div class="platform-header">
+    <div class="platform-name">Poshmark</div>
+    <span class="platform-tag tag-optional">Manual / CSV Only</span>
+  </div>
+  <div class="platform-meta">
+    <div class="meta-item"><div class="meta-label">Fees</div>20% on sales over $15 / $2.95 flat under $15</div>
+    <div class="meta-item"><div class="meta-label">API</div>None &mdash; terms prohibit automated scraping/crawling</div>
+    <div class="meta-item"><div class="meta-label">Workflow</div>Manual listing or Poshmark's Inventory Report CSV</div>
+  </div>
+  <p>No public API, and their terms explicitly prohibit automated data collection. Use their Inventory Report (SKU + listing fields) for controlled import/export. High fees (20%) make it a last-resort channel. Only worth it if you have items that sell uniquely well to the Poshmark audience.</p>
+</div>
+
+<!-- ============ LISTING WORKFLOW ============ -->
+<h2 id="listing">Listing Workflow</h2>
+
+<h3>eBay Single-Card Listing (Step by Step)</h3>
+<ol class="steps">
+  <li><strong>Research value</strong> &mdash; eBay &rarr; Advanced Search &rarr; check "Sold listings". Also check 130point.com for actual Best Offer prices eBay hides.</li>
+  <li><strong>Start listing</strong> &mdash; Seller Hub &rarr; Listings &rarr; Create Listing</li>
+  <li><strong>Select category</strong> &mdash; Sports Mem, Cards &amp; Fan Shop &rarr; Sports Trading Cards &rarr; [Sport] &rarr; Singles</li>
+  <li><strong>Fill item specifics</strong> &mdash; Sport, Player, Team, League, Set/Brand, Year, Card Number, Condition, Graded (Y/N), Autographed (Y/N). Fill EVERY field &mdash; more specifics = better search visibility.</li>
+  <li><strong>Write title</strong> (80 chars max) &mdash; <code>[Year] [Brand] [Set/Insert] [Player] [Card #] [Parallel] [Feature]</code><br>Example: <code>2024 Topps Chrome Refractor Elly De La Cruz #150 RC Rookie</code><br>No "LOOK!", "GREAT DEAL!", or "L@@K" &mdash; these hurt ranking.</li>
+  <li><strong>Add photos</strong> &mdash; 4&ndash;12 from your lightbox. Front, back, corners/edges close-ups. First photo = search thumbnail. 1600px+ minimum.</li>
+  <li><strong>Write description</strong> &mdash; brief: condition notes, flaws, shipping method, what they receive. Use a reusable HTML template.</li>
+  <li><strong>Set price &amp; format</strong> &mdash; Buy It Now + Best Offer for most. Set auto-accept (80%+) and auto-decline (under 60%). Auction for rare/hyped cards ending Sunday 7&ndash;9 PM EST.</li>
+  <li><strong>Apply shipping profile</strong> &mdash; select your saved template</li>
+  <li><strong>Review and publish</strong></li>
+</ol>
+
+<h3>Bulk Listing (Efficiency)</h3>
+
+<details>
+  <summary>eBay Magical Bulk Listing Tool (Free, Built-in)</summary>
+  <div class="details-body">
+    <p><strong>Where:</strong> Seller Hub &rarr; Listings &rarr; Create Listings &rarr; "Multiple listings from photos"</p>
+    <p><strong>How:</strong> Upload a batch of card photos. eBay's AI generates draft listings with suggested categories, titles, item specifics, and pricing. Review each draft, correct errors, publish.</p>
+    <p><strong>Key detail:</strong> Specify how many photos per card (e.g., 2 or 4). Use exactly that number per card so the AI groups them correctly.</p>
+    <p><strong>Best for:</strong> Moderate batches (dozens). Still requires manual review &mdash; AI may misidentify cards.</p>
+  </div>
+</details>
+
+<details>
+  <summary>CSV Bulk Upload</summary>
+  <div class="details-body">
+    <p><strong>Where:</strong> Seller Hub &rarr; Listings &rarr; Create Listings &rarr; "Upload from file"</p>
+    <p>Download eBay's CSV template, fill columns for each card. Can process hundreds/thousands at once. Steep learning curve &mdash; template is complex. Photo upload is separate.</p>
+  </div>
+</details>
+
+<details>
+  <summary>Third-Party Tools</summary>
+  <div class="details-body">
+    <p><strong>Card Dealer Pro (by CollX)</strong> &mdash; Scan/photograph cards &rarr; AI identifies &rarr; pulls pricing &rarr; creates listings across eBay, Shopify, Whatnot, CollX. ~$9.99/mo or $99.99/yr.</p>
+    <p><strong>TCG Automate</strong> &mdash; Upload images &rarr; AI matches to card DB &rarr; pulls SportsCardsPro pricing &rarr; generates eBay CSV or API listings. Sports-card focused.</p>
+    <p><strong>CollX App</strong> &mdash; Phone-based scanner for identification and valuation. Free tier + Pro (~$10/mo). Best for quick ID before listing elsewhere.</p>
+    <p><strong>Recommendation:</strong> Try eBay's free built-in tools first. Test a third-party tool on a small batch before paying for a subscription.</p>
+  </div>
+</details>
+
+<h3>Promoted Listings</h3>
+<ul>
+  <li><strong>Standard (2&ndash;3%)</strong> &mdash; You only pay if a buyer clicks AND purchases within 30 days. Start here on items sitting 14+ days.</li>
+  <li><strong>Advanced (CPC)</strong> &mdash; You pay per click regardless of sale. Only for $100+ graded cards. Skip until you know your conversion rates.</li>
+</ul>
+
+
+<!-- ============ PRICING ============ -->
+<h2 id="pricing">Pricing &amp; Research</h2>
+
+<h3>Comp Research Tools</h3>
+<div class="table-wrap">
+<table>
+  <tr><th>Tool</th><th>Cost</th><th>What It Does</th></tr>
+  <tr>
+    <td><strong>eBay Sold Listings</strong></td>
+    <td>Free</td>
+    <td>Filter by "Sold Items" for real sale prices. Caveat: shows asking price for Best Offer sales, not accepted price. 90-day history.</td>
+  </tr>
+  <tr>
+    <td><strong>130point.com/cards</strong></td>
+    <td>Free</td>
+    <td>Reveals actual Best Offer accepted prices. Shows data beyond 90 days. Also shows unsold auctions (rejected prices).</td>
+  </tr>
+  <tr>
+    <td><strong>SportsCardsPro</strong></td>
+    <td>Free + Paid</td>
+    <td>Average selling prices over time across platforms.</td>
+  </tr>
+  <tr>
+    <td><strong>CardLadder</strong></td>
+    <td>~$10/mo</td>
+    <td>Graded card tracking &mdash; PSA/BGS/SGC/CGC sales history, population reports, portfolio tracking. "Gold standard" for graded.</td>
+  </tr>
+  <tr>
+    <td><strong>CollX App</strong></td>
+    <td>Free + Pro</td>
+    <td>Scan cards with phone camera &rarr; instant ID and market value. Pro ($49.99/yr): bulk scanning, export.</td>
+  </tr>
+  <tr>
+    <td><strong>LastSold Extension</strong></td>
+    <td>Free</td>
+    <td>Chrome extension &mdash; overlays sold comps directly on eBay listing pages while browsing.</td>
+  </tr>
+</table>
+</div>
+
+<h3>Pricing Strategy</h3>
+<div class="table-wrap">
+<table>
+  <tr><th>Card Type</th><th>Format</th><th>Pricing</th></tr>
+  <tr>
+    <td>Raw singles $20+</td>
+    <td>BIN + Best Offer</td>
+    <td>At or 5&ndash;10% below most recent comp. Auto-accept 80%+, auto-decline under 60%.</td>
+  </tr>
+  <tr>
+    <td>Graded cards</td>
+    <td>BIN + Best Offer</td>
+    <td>Match exact grade + card comps. A PSA 10 and PSA 9 can differ 5&ndash;10x.</td>
+  </tr>
+  <tr>
+    <td>Rare/hyped cards</td>
+    <td>Auction (7-day)</td>
+    <td>Start at $0.99. End Sunday 7&ndash;9 PM EST. Low starts attract more bidders.</td>
+  </tr>
+  <tr>
+    <td>Under $5 cards</td>
+    <td>Lots/Bundles</td>
+    <td>Team lots, rookie lots, "starter collection" bundles. Price per-card lower than individual.</td>
+  </tr>
+</table>
+</div>
+
+
+<!-- ============ GRADING ============ -->
+<h2 id="grading">Card Grading</h2>
+
+<h3>Grading Services (October 2026)</h3>
+
+<div class="box box-warn">
+  <div class="box-label">Status Alert</div>
+  PSA Value tiers and BGS Base/Standard are <strong>paused</strong> due to record submission volumes (~10M backlog at PSA). CGC is the only major grader with full tiers open. Always verify current availability directly.
+</div>
+
+<div class="table-wrap">
+<table>
+  <tr><th>Service</th><th>Cheapest Available</th><th>Turnaround</th><th>Notes</th></tr>
+  <tr>
+    <td><strong>PSA</strong></td>
+    <td>$79.99 (Regular)</td>
+    <td>~40&ndash;60 biz days</td>
+    <td>Highest resale premium. Value tiers paused.</td>
+  </tr>
+  <tr>
+    <td><strong>BGS</strong></td>
+    <td>$79.95 (Express)</td>
+    <td>~15 biz days</td>
+    <td>Has subgrades. Base/Standard paused.</td>
+  </tr>
+  <tr>
+    <td><strong>SGC</strong></td>
+    <td>$50 (Standard)</td>
+    <td>Varies</td>
+    <td>Price hike Sep 2026. Good for vintage.</td>
+  </tr>
+  <tr>
+    <td><strong>CGC</strong></td>
+    <td>$17 (Bulk, 25 min)</td>
+    <td>~120 working days</td>
+    <td>Only grader fully open. Growing recognition.</td>
+  </tr>
+</table>
+</div>
+
+<h3>When to Grade &mdash; ROI Formula</h3>
+<div class="fee-example">
+  <div style="font-family:'Space Grotesk',sans-serif;font-weight:600;margin-bottom:8px;">Grade only if the math works:</div>
+  (Expected graded sale) &minus; (Raw value) &minus; (Grading fee) &minus; (Shipping to grader) &minus; (Platform fees on graded price) = Profit
+</div>
+
+<ul>
+  <li>Only grade if PSA 9/10 yields <strong>at least 3x raw value</strong> after all fees</li>
+  <li>At PSA $79.99: card needs to gain <strong>$120+</strong> in value from grading</li>
+  <li>At CGC $17 (bulk): threshold drops to ~$40+ gain needed</li>
+  <li>Never grade a card worth less than <strong>$20 raw</strong></li>
+  <li>Don't grade damaged cards hoping for a miracle &mdash; PSA 6 or below rarely adds value for modern</li>
+</ul>
+
+<h3>Self-Grading Before Submission</h3>
+<p>The four pillars (use a loupe or magnifying glass):</p>
+<ul>
+  <li><strong>Centering</strong> &mdash; PSA 10 requires 60/40 or better front, 75/25 or better back</li>
+  <li><strong>Corners</strong> &mdash; all four must be sharp. Look for fuzzing, dings, soft corners under magnification</li>
+  <li><strong>Edges</strong> &mdash; no chipping, roughness, or white showing along colored edges</li>
+  <li><strong>Surface</strong> &mdash; examine under direct light at multiple angles. No scratches, print defects, wax stains, creases</li>
+</ul>
+
+<h3>eBay Authenticity Guarantee</h3>
+<p>Cards <strong>$200+</strong> go through PSA authentication (free &mdash; eBay covers it). You ship to PSA's center, they verify authenticity and condition consistency, then forward to buyer. Cards that fail are returned to you.</p>
+
+
+<!-- ============ SHIPPING ============ -->
+<h2 id="shipping">Shipping &amp; Packaging</h2>
+
+<h3>Packaging: Raw Single Cards</h3>
+<ol class="steps">
+  <li><strong>Penny sleeve</strong> &mdash; slide card in, opening facing up</li>
+  <li><strong>Top loader (35pt standard)</strong> &mdash; insert sleeved card, opening at top</li>
+  <li><strong>Team bag</strong> &mdash; seal the top loader inside</li>
+  <li><strong>Painter's tape</strong> &mdash; one strip across top loader opening to prevent sliding. Never tape directly on a card.</li>
+  <li><strong>Cardboard sandwich</strong> &mdash; top loader between two pieces of stiff cardboard, secured with rubber band or painter's tape</li>
+  <li><strong>Bubble mailer</strong> &mdash; place sandwich inside, seal</li>
+</ol>
+
+<h3>Packaging: Graded Slabs</h3>
+<ol class="steps">
+  <li><strong>Photograph</strong> front, back, and label before packing</li>
+  <li><strong>Slab sleeve</strong> &mdash; prevents scuffs on the acrylic case</li>
+  <li><strong>Bubble wrap</strong> &mdash; 2+ layers of small-bubble wrap, secure with painter's tape</li>
+  <li><strong>Cardboard sandwich</strong> &mdash; both sides, slightly oversized, bound with rubber bands</li>
+  <li><strong>Snug box</strong> &mdash; the slab must NOT move when you shake the box. Fill all gaps.</li>
+  <li><strong>Priority Mail</strong> &mdash; ship with tracking + insurance</li>
+</ol>
+
+<h3>Shipping Methods &amp; Costs</h3>
+<div class="table-wrap">
+<table>
+  <tr><th>Method</th><th>Cost (approx)</th><th>Use For</th><th>Includes</th></tr>
+  <tr>
+    <td><strong>eBay Standard Envelope</strong></td>
+    <td>$0.60&ndash;$1.08</td>
+    <td>Raw cards under $20, up to 3oz</td>
+    <td>Tracking + $20 protection</td>
+  </tr>
+  <tr>
+    <td><strong>USPS Ground Advantage</strong></td>
+    <td>~$5.17&ndash;$6.44</td>
+    <td>Cards $20+, standard shipments</td>
+    <td>Tracking only</td>
+  </tr>
+  <tr>
+    <td><strong>USPS Priority Mail</strong></td>
+    <td>~$10.45+</td>
+    <td>$100+ cards, graded slabs, heavy lots</td>
+    <td>Tracking + $50 insurance</td>
+  </tr>
+  <tr>
+    <td><strong>PWE (stamped)</strong></td>
+    <td>~$1.08</td>
+    <td>Sub-$5 cards (at your risk)</td>
+    <td>No tracking, no insurance</td>
+  </tr>
+</table>
+</div>
+
+<h3>Printing Labels</h3>
+<ul>
+  <li><strong>eBay Labels</strong> &mdash; Seller Hub &rarr; Orders &rarr; Print Shipping Label. Discounted rates vs retail counter.</li>
+  <li><strong>QR Codes</strong> &mdash; eBay emails a QR code, take phone to post office, USPS prints the label. No printer needed.</li>
+  <li><strong>Thermal label printer</strong> (DYMO 4XL or Rollo) &mdash; pays for itself at volume. Print 4x6 labels at home.</li>
+  <li><strong>Pirate Ship</strong> &mdash; best rates for non-eBay shipments (Mercari "ship on your own", Facebook).</li>
+</ul>
+
+<h3>Free Shipping vs Buyer Pays</h3>
+<div class="table-wrap">
+<table>
+  <tr><th>Card Value</th><th>Strategy</th><th>Why</th></tr>
+  <tr><td>Under $10</td><td>Free (baked into price)</td><td>Buyer perception, search boost</td></tr>
+  <tr><td>$10&ndash;$50</td><td>Flat rate $4&ndash;$5</td><td>Transparent, covers Ground Advantage</td></tr>
+  <tr><td>$50+</td><td>Calculated shipping</td><td>Protects your margin</td></tr>
+  <tr><td>Graded slabs</td><td>Calculated or flat $8&ndash;$12</td><td>Covers Priority Mail + box</td></tr>
+</table>
+</div>
+
+<div class="box box-warn">
+  <div class="box-label">Insurance &amp; Tracking Rules</div>
+  <strong>Always use tracking.</strong> Without it, buyer can claim non-receipt and you auto-lose.<br>
+  <strong>Signature confirmation required on $750+ sales.</strong><br>
+  Add insurance for cards over $50. Priority Mail includes $50 free.
+</div>
+
+
+<!-- ============ SOURCING ============ -->
+<h2 id="sourcing">Sourcing Deals</h2>
+
+<h3>eBay Sourcing</h3>
+<ul>
+  <li><strong>Auction sniping</strong> &mdash; Auctions ending Tue&ndash;Thu, 9am&ndash;12pm draw the least competition (20&ndash;40% below market). Use <strong>Gixen</strong> or <strong>EZSniper</strong> to bid in the final seconds.</li>
+  <li><strong>Typo hunting</strong> &mdash; Misspelled names get fewer views = less competition. Search "Charzard", "Othani", etc. <strong>FatFingers</strong> tool helps find these.</li>
+  <li><strong>Bulk lots</strong> &mdash; Unsorted collections are often underpriced. Buy lots, pull valuable singles, resell rest as smaller lots.</li>
+  <li><strong>Saved Searches</strong> &mdash; Set email alerts for specific players/sets at target prices.</li>
+  <li><strong>Best Offer strategy</strong> &mdash; Offer 50&ndash;60% on BIN listings sitting 30+ days.</li>
+</ul>
+
+<h3>Facebook &amp; Craigslist</h3>
+<ul>
+  <li>Search Marketplace and Craigslist for "sports cards", "card collection", "baseball cards lot"</li>
+  <li>Join <strong>local BST groups</strong> &mdash; people sell collections from deceased relatives, downsizing</li>
+  <li>Set up <strong>notifications</strong> for new posts matching your terms</li>
+  <li>Negotiate hard on Craigslist &mdash; start at 40&ndash;50% of asking. Sellers expect it.</li>
+</ul>
+
+<h3>In-Person Sourcing</h3>
+<ul>
+  <li><strong>Estate sales</strong> &mdash; #1 source for underpriced cards. Families often don't know card values. Use <strong>EstateSales.net</strong> and <strong>GarageSaleTracker</strong> apps.</li>
+  <li><strong>Thrift stores</strong> &mdash; Check toys/games section. Ask employees about card donations.</li>
+  <li><strong>Card shows</strong> &mdash; Best deals in the <strong>last hour</strong> when dealers want to move inventory vs pack up.</li>
+  <li><strong>Local card shops</strong> &mdash; Build relationships. Ask about bulk or dollar boxes with hidden gems.</li>
+  <li><strong>Pawn shops / antique stores</strong> &mdash; Cards aren't their specialty = priced below market.</li>
+</ul>
+
+<div class="box box-accent">
+  <div class="box-label">Sourcing Rules</div>
+  Always check comps on your phone before buying (eBay Sold or 130point.com). Factor in platform fees (~13% eBay, ~10% Mercari). Target cards worth $5+ individually &mdash; below that, sell as lots. <strong>Junk wax era (1987&ndash;1993)</strong> Topps, Donruss, Fleer, Score are generally worthless in bulk.
+</div>
+
+
+<!-- ============ MULTI-CHANNEL ============ -->
+<h2 id="multichannel">Multi-Channel Hub Strategy</h2>
+
+<p>The goal: <strong>own a canonical catalog where every card has one identity, and every marketplace listing is just a projection of that identity.</strong> When a card sells anywhere, it disappears everywhere else within minutes.</p>
+
+<div class="box box-accent">
+  <div class="box-label">The Core Problem with Unique Items</div>
+  Most cards are <strong>quantity-one items</strong>. If the same card is listed on eBay, Mercari, and Fanatics simultaneously, and two buyers purchase on different platforms before you can react, you've <strong>double-sold</strong> a card you only have one of. That means a cancellation, negative feedback, and potential account issues. Your inventory system must treat this as the #1 risk to solve.
+</div>
+
+<h3>The Control Plane Concept</h3>
+<p>Don't think of your hub as "another store." Think of it as a <strong>control plane</strong> &mdash; you own the canonical catalog, inventory ledger, pricing rules, and media. Marketplaces receive a projection of your data, not the original.</p>
+
+<div class="table-wrap">
+<table>
+  <tr><th>Data</th><th>Who Owns It</th></tr>
+  <tr><td>SKU / product identity / photos</td><td><strong>Your hub</strong> (always)</td></tr>
+  <tr><td>Cost / acquisition data</td><td><strong>Your hub only</strong> &mdash; never expose</td></tr>
+  <tr><td>Description, collectible metadata</td><td><strong>Your hub</strong></td></tr>
+  <tr><td>Physical inventory count</td><td><strong>Your hub inventory ledger</strong></td></tr>
+  <tr><td>Base price</td><td><strong>Your hub</strong></td></tr>
+  <tr><td>Channel-specific title/price overrides</td><td>Your hub, per-channel</td></tr>
+  <tr><td>External listing ID / status</td><td>The channel</td></tr>
+  <tr><td>Buyer / order identity</td><td>Originating channel</td></tr>
+  <tr><td>Marketplace fees / tax charged</td><td>The channel / order</td></tr>
+  <tr><td>Fulfillment / tracking</td><td>Your hub after shipping, pushed out</td></tr>
+</table>
+</div>
+
+<h3>Inventory Ledger (Not Just a Number)</h3>
+<p>For unique cards, model inventory as a ledger, not a single mutable number:</p>
+<div class="fee-example">
+  <div style="font-family:'Space Grotesk',sans-serif;font-weight:600;margin-bottom:8px;">Available to Sell = On Hand &minus; Reserved &minus; Safety Stock</div>
+  <div class="fee-line"><span>On hand</span><span>1</span></div>
+  <div class="fee-line"><span>Reserved (pending sale)</span><span>0</span></div>
+  <div class="fee-line"><span>Safety stock</span><span>0</span></div>
+  <div class="fee-line fee-total"><span>Available to sell</span><span>1</span></div>
+</div>
+<p>When a paid order event arrives from ANY channel: <strong>atomically create a reservation and set ATS to 0</strong> before doing anything else. Then fan out "quantity = 0" or "end listing" commands to every other channel. This doesn't eliminate double-sells (two platforms can accept orders before either event reaches you), but it minimizes the window.</p>
+
+<p>For rare/high-value one-of-one cards, also support:</p>
+<ul>
+  <li>Withholding from lower-priority channels entirely</li>
+  <li>A <strong>"sell lock"</strong> that suppresses all other listings after a committed transaction</li>
+  <li>A one-click <strong>"deactivate everywhere"</strong> emergency command</li>
+</ul>
+
+<h3>Channel-Specific Pricing Formula</h3>
+<p>Don't set prices manually per platform. Use a formula so every channel price accounts for its specific fee structure:</p>
+<div class="fee-example">
+  <div style="font-family:'Space Grotesk',sans-serif;font-weight:600;margin-bottom:8px;">Channel Price Formula</div>
+  <div style="margin-bottom:8px;">Channel Price = (Base Price + Fixed Costs + Shipping Recovery) &divide; (1 &minus; Variable Fee %)</div>
+  <div style="border-top:1px solid var(--border);padding-top:8px;margin-top:8px;">
+  <div style="font-weight:600;margin-bottom:4px;">Example: $40 target proceeds</div>
+  <div class="fee-line"><span>Base target proceeds</span><span>$40.00</span></div>
+  <div class="fee-line"><span>Shipping recovery</span><span>$4.50</span></div>
+  <div class="fee-line"><span>Fixed buffer</span><span>$0.50</span></div>
+  <div class="fee-line"><span>eBay variable fee</span><span>14%</span></div>
+  <div class="fee-line fee-total"><span>eBay listing price</span><span>$52.33</span></div>
+  <div style="color:var(--fg-dim);margin-top:4px;">($40 + $4.50 + $0.50) &divide; 0.86 = $52.33</div>
+  </div>
+</div>
+
+<p>Pricing rules should follow a precedence chain:</p>
+<ol>
+  <li>Manual SKU/channel override (you force a specific price)</li>
+  <li>Campaign rule (sale, promotion)</li>
+  <li>Category/channel rule (all baseball cards on eBay get +5%)</li>
+  <li>Default channel rule (eBay = base + 14% fee recovery)</li>
+  <li>Canonical base price</li>
+</ol>
+
+<h3><span class="phase-badge phase-1">Phase 1</span> Start Simple (0&ndash;200 Listings)</h3>
+<ul>
+  <li><strong>Platforms:</strong> eBay (primary) + Mercari + Facebook Marketplace</li>
+  <li><strong>Cross-listing:</strong> Vendoo ($8.99/mo) &mdash; list on eBay first, one-click cross-list</li>
+  <li><strong>Inventory:</strong> Google Sheets or Vendoo's built-in tracking</li>
+  <li><strong>Monthly cost:</strong> ~$9 + platform fees on sales</li>
+  <li><strong>Double-sell prevention:</strong> Vendoo auto-delist on some plans. Manual delist as backup.</li>
+</ul>
+
+<h3><span class="phase-badge phase-2">Phase 2</span> Expand (200&ndash;1,000 Listings)</h3>
+<ul>
+  <li><strong>Add:</strong> Fanatics Collect (6% fees) + MySlabs (graded) + Etsy (vintage/memorabilia)</li>
+  <li><strong>Cross-listing:</strong> Nembol ($39/mo for 500 products) or List Perfectly &mdash; broader platform support + API access on higher tiers</li>
+  <li><strong>Card tools:</strong> Mascot (PSA/BGS/SGC/CGC integration) for grading-specific workflows</li>
+  <li><strong>Monthly cost:</strong> ~$40&ndash;$80 in tools</li>
+  <li><strong>Consider:</strong> Whatnot (if on camera), TikTok Shop (if making content)</li>
+</ul>
+
+<h3><span class="phase-badge phase-3">Phase 3</span> Build the Hub (1,000+ Listings)</h3>
+<ul>
+  <li><strong>Central hub:</strong> Your own website (Shopify as transaction engine, NOT as master database)</li>
+  <li><strong>Key distinction:</strong> Your hub owns product identity, metadata, costs, inventory, pricing rules, analytics. Shopify receives a "sellable projection" and handles cart/checkout/payments.</li>
+  <li><strong>eBay sync:</strong> CedCommerce ($29+/mo) for Shopify &harr; eBay auto-sync</li>
+  <li><strong>Cross-list:</strong> Vendoo/Nembol for Mercari, FB, Etsy</li>
+  <li><strong>Monthly cost:</strong> ~$100&ndash;$170 (Shopify $39 + CedCommerce $29 + Nembol/Vendoo $39)</li>
+  <li><strong>Future migration:</strong> Because your hub is the master, you could swap Shopify for BigCommerce or WooCommerce by changing one adapter &mdash; not rebuilding everything.</li>
+</ul>
+
+<h3>The Hub Architecture</h3>
+<div class="workflow"><span class="wf-hub">YOUR CONTROL PLANE</span> <span class="wf-note">(canonical catalog + inventory ledger)</span>
+<span class="wf-arrow">|</span>
+<span class="wf-arrow">|--</span> <span class="wf-plat">eBay</span>             <span class="wf-note">via CedCommerce &mdash; auto-sync (full API)</span>
+<span class="wf-arrow">|--</span> <span class="wf-plat">Shopify / Your Site</span><span class="wf-note"> direct adapter &mdash; 0% marketplace fees</span>
+<span class="wf-arrow">|--</span> <span class="wf-plat">Mercari</span>           <span class="wf-note">via Vendoo/Nembol &mdash; cross-list</span>
+<span class="wf-arrow">|--</span> <span class="wf-plat">FB Marketplace</span>    <span class="wf-note">via Vendoo &mdash; cross-list</span>
+<span class="wf-arrow">|--</span> <span class="wf-plat">Fanatics Collect</span>  <span class="wf-note">manual (no public API yet)</span>
+<span class="wf-arrow">|--</span> <span class="wf-plat">Etsy</span>             <span class="wf-note">via Nembol or direct (Open API v3)</span>
+<span class="wf-arrow">|--</span> <span class="wf-plat">TikTok Shop</span>      <span class="wf-note">via adapter (TikTok Open API)</span>
+<span class="wf-arrow">|--</span> <span class="wf-plat">MySlabs</span>          <span class="wf-note">manual &mdash; graded only</span>
+<span class="wf-arrow">|--</span> <span class="wf-plat">Whatnot</span>          <span class="wf-note">manual &mdash; live stream format</span>
+<span class="wf-arrow">|--</span> <span class="wf-plat">Poshmark</span>         <span class="wf-note">CSV export only &mdash; no API</span></div>
+
+<div class="box box-accent">
+  <div class="box-label">The Golden Rule</div>
+  When a card sells on ANY platform, it must be removed from ALL others <strong>within minutes</strong>. Auto-delist tools handle some of this. For platforms without auto-sync, your first action after a sale notification is: mark sold in your master inventory, which triggers removal everywhere else. For high-value one-of-one cards, consider listing on only one platform at a time.
+</div>
+
+<h3>Cross-Listing &amp; Hub Tools Comparison</h3>
+<div class="table-wrap">
+<table>
+  <tr><th>Tool</th><th>Price</th><th>Platforms</th><th>Key Features</th></tr>
+  <tr>
+    <td><strong>Vendoo</strong></td>
+    <td>$8.99&ndash;$14.99/mo</td>
+    <td>eBay, Mercari, Poshmark, FB, Etsy, Depop</td>
+    <td>Simplest option. Auto-delist on some plans. Best for Phase 1.</td>
+  </tr>
+  <tr>
+    <td><strong>Nembol</strong></td>
+    <td>$39 (500) / $49 (2K) / $79 (5K) / $129 (15K)</td>
+    <td>Amazon, eBay, Shopify, Etsy, WooCommerce, TikTok + more</td>
+    <td>REST API on Enterprise+. Inventory/price/order sync. Best Phase 2 accelerator.</td>
+  </tr>
+  <tr>
+    <td><strong>Sellbrite</strong></td>
+    <td>$0 (30 orders) / $29 (100) / $79 (500) / $179 (2K)</td>
+    <td>eBay, Amazon, Etsy, Shopify, Walmart, FB, Google</td>
+    <td>Master catalog + inventory sync. FBA support. ~15-min price sync cadence (slow for unique items).</td>
+  </tr>
+  <tr>
+    <td><strong>List Perfectly</strong></td>
+    <td>$29&ndash;$99+/mo</td>
+    <td>eBay, Mercari, Poshmark, FB, Etsy, Grailed</td>
+    <td>More powerful than Vendoo, steeper learning curve. Auto-delist on higher tiers.</td>
+  </tr>
+  <tr>
+    <td><strong>CedCommerce</strong></td>
+    <td>$29+/mo per channel</td>
+    <td>eBay, Amazon, Etsy, TikTok, Walmart (via Shopify)</td>
+    <td>Shopify-first. Best for Phase 3 Shopify &harr; eBay sync. 4.8 stars, 870+ reviews.</td>
+  </tr>
+  <tr>
+    <td><strong>Mascot</strong></td>
+    <td>Varies</td>
+    <td>eBay, Shopify, Square + expanding</td>
+    <td>Card-specific. PSA/BGS/SGC/CGC integration. Built for card dealers.</td>
+  </tr>
+</table>
+</div>
+
+<div class="box box-tip">
+  <div class="box-label">Buy vs Build</div>
+  <strong>Buy commodity connectivity</strong> (Vendoo/Nembol for cross-listing), <strong>build the control plane</strong> (your canonical catalog, inventory ledger, pricing rules). Use a SaaS bridge for secondary channels, then replace with direct adapters only when the SaaS creates oversell risk, can't represent your data, or costs more than maintaining your own adapter.
+</div>
+
+<h3>When to Build callunc.com (Custom Platform)</h3>
+<p>At high volume (1,000+ active listings, multi-channel), a custom control plane becomes the long-term play:</p>
+<ul>
+  <li><strong>You own:</strong> canonical catalog, SKU/asset data, inventory ledger, channel mappings, pricing rules, order normalization, analytics</li>
+  <li><strong>Adapters publish to:</strong> eBay (Inventory API), Shopify (GraphQL Admin API), Etsy (Open API v3), TikTok (Open API), Amazon (SP-API)</li>
+  <li><strong>Shopify handles:</strong> storefront checkout only &mdash; not the master database</li>
+  <li><strong>Stack:</strong> TypeScript/Node.js backend, PostgreSQL, Redis, SQS/event bus, S3 for media, Next.js admin dashboard</li>
+  <li><strong>MVP:</strong> eBay + callunc.com/Shopify first. Prove "sell once, disappear everywhere" before adding channels.</li>
+</ul>
+
+<div class="box box-info">
+  <div class="box-label">Cost Reality</div>
+  A <strong>hybrid approach</strong> (your catalog + direct eBay/Shopify adapters + SaaS bridge for others) runs ~$120K&ndash;$250K in engineering effort. A <strong>full custom platform</strong> with most channels direct is $300K&ndash;$700K+. Start with Phase 1&ndash;2 using off-the-shelf tools, and graduate to custom only when volume and margin justify it.
+</div>
+
+
+<!-- ============ TAXES ============ -->
+<h2 id="taxes">Taxes &amp; Record Keeping</h2>
+
+<h3>1099-K Reporting</h3>
+<ul>
+  <li><strong>Federal:</strong> Platforms report at $20,000 AND 200+ transactions (verify &mdash; phased threshold may be $5,000 in 2026)</li>
+  <li><strong>Many states use $600</strong> regardless &mdash; you may get a 1099-K even with modest sales</li>
+  <li><strong>All income is taxable</strong> whether or not you receive a 1099-K</li>
+</ul>
+
+<h3>Hobby vs Business</h3>
+<div class="table-wrap">
+<table>
+  <tr><th></th><th>Hobby</th><th>Business (Schedule C)</th></tr>
+  <tr>
+    <td><strong>Gains taxable?</strong></td>
+    <td>Yes</td>
+    <td>Yes</td>
+  </tr>
+  <tr>
+    <td><strong>Expenses deductible?</strong></td>
+    <td>Generally no (TCJA suspension)</td>
+    <td>Yes &mdash; shipping, supplies, grading fees, equipment, travel to shows, home office</td>
+  </tr>
+  <tr>
+    <td><strong>Self-employment tax?</strong></td>
+    <td>No</td>
+    <td>~15.3% on profits</td>
+  </tr>
+  <tr>
+    <td><strong>IRS test</strong></td>
+    <td colspan="2">9 factors &mdash; record-keeping, expertise, time, profit history, intent. Rule of thumb: show profit 3 of 5 years.</td>
+  </tr>
+</table>
+</div>
+
+<div class="box box-tip">
+  <div class="box-label">Recommendation</div>
+  If selling regularly (not just clearing a personal collection), <strong>file as a business from the start</strong>. Deductions (grading fees, supplies, shipping, equipment, card show travel) usually outweigh the self-employment tax hit.
+</div>
+
+<h3>Record Keeping</h3>
+<p>Track every transaction: date, platform, item description, sale price, platform fees, shipping cost, original purchase price (your cost basis), net profit. Keep receipts for all supplies, grading fees, shipping, and inventory purchases.</p>
+<p>Consider a separate bank account for card sales to keep finances clean.</p>
+
+
+<!-- ============ SUPPLIES ============ -->
+<h2 id="supplies">Supplies Checklist</h2>
+
+<h3>Card Protection</h3>
+<div class="table-wrap">
+<table>
+  <tr><th>Item</th><th>Type</th><th>Where to Buy</th></tr>
+  <tr><td>Penny sleeves</td><td>Standard 2 5/8" x 3 5/8"</td><td>Temu (1,000-packs), Amazon, eBay</td></tr>
+  <tr><td>Top loaders</td><td>35pt (standard), 55pt, 75pt thick</td><td>Same &mdash; 200-pack of 35pt covers 85&ndash;90% of cards</td></tr>
+  <tr><td>Team bags</td><td>Resealable</td><td>Amazon, eBay</td></tr>
+  <tr><td>Card Saver I</td><td>Semi-rigid</td><td>Amazon, eBay &mdash; required for grading submissions</td></tr>
+  <tr><td>Slab sleeves</td><td>Fit PSA/BGS cases</td><td>Amazon, eBay</td></tr>
+</table>
+</div>
+
+<h3>Shipping Supplies</h3>
+<div class="table-wrap">
+<table>
+  <tr><th>Item</th><th>Notes</th></tr>
+  <tr><td>Bubble mailers (4x8")</td><td>Single raw cards</td></tr>
+  <tr><td>Bubble mailers (6x9")</td><td>1&ndash;10 cards in top loaders</td></tr>
+  <tr><td>Bubble mailers (9x12")</td><td>Graded slabs, large lots</td></tr>
+  <tr><td>Small boxes (6x4x2")</td><td>Graded slabs, multi-card lots</td></tr>
+  <tr><td>#10 white envelopes</td><td>For eBay Standard Envelope only</td></tr>
+  <tr><td>Painter's tape (blue)</td><td>Low-tack &mdash; won't damage cards</td></tr>
+  <tr><td>Packing tape</td><td>For sealing boxes and mailers</td></tr>
+  <tr><td>"Do Not Bend" stamps</td><td>Apply to envelope exteriors</td></tr>
+  <tr><td>Bubble wrap (small bubble)</td><td>For wrapping slabs and padding</td></tr>
+  <tr><td>Digital postal scale</td><td>Essential for accurate shipping costs</td></tr>
+</table>
+</div>
+
+<div class="box box-info">
+  <div class="box-label">Cheapest Sources</div>
+  <strong>Temu</strong> &mdash; best bulk prices for sleeves and top loaders (check quality).<br>
+  <strong>Amazon</strong> &mdash; bubble mailers, tape, branded supplies (Ultra PRO).<br>
+  <strong>eBay itself</strong> &mdash; wholesale supplies at good prices.<br>
+  <strong>USPS.com</strong> &mdash; Free Priority Mail boxes and envelopes, delivered free.
+</div>
+
+
+<!-- ============ MARKET TRENDS ============ -->
+<h2 id="market">Market Snapshot (Oct 2026)</h2>
+<ul>
+  <li><strong>Soccer</strong> is the hottest segment heading into the 2026 World Cup &mdash; Yamal, Bellingham, Wirtz Topps Chrome rookies in high demand</li>
+  <li><strong>Basketball</strong> &mdash; Chet Holmgren Prizm rookies trending. Topps re-entering NBA licensing alongside Panini.</li>
+  <li>Rare inserts (/25, /10, /5, 1/1 parallels) outperforming base star cards</li>
+  <li>Live commerce (Whatnot, Fanatics Live, eBay Live) is a major growth driver</li>
+  <li>eBay singles sales hit <strong>$233 million in March 2026 alone</strong></li>
+  <li>Card market estimated at <strong>$13B+</strong>, projected to double by 2034</li>
+  <li>Prices are volatile &mdash; don't hold inventory expecting prices to rise</li>
+</ul>
+
+</main>
+
+<script>
+  const toggle = document.getElementById('navToggle');
+  const sidebar = document.getElementById('sidebar');
+
+  toggle.addEventListener('click', () => {
+    sidebar.classList.toggle('open');
+  });
+
+  document.addEventListener('click', (e) => {
+    if (sidebar.classList.contains('open') && !sidebar.contains(e.target) && e.target !== toggle) {
+      sidebar.classList.remove('open');
+    }
+  });
+
+  const links = document.querySelectorAll('.nav-link');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        links.forEach(l => l.classList.remove('active'));
+        const active = document.querySelector('.nav-link[href="#' + entry.target.id + '"]');
+        if (active) active.classList.add('active');
+      }
+    });
+  }, { rootMargin: '-20% 0px -75% 0px' });
+
+  document.querySelectorAll('h2[id]').forEach(h => observer.observe(h));
+
+  links.forEach(link => {
+    link.addEventListener('click', () => {
+      if (sidebar.classList.contains('open')) sidebar.classList.remove('open');
+    });
+  });
+
+  // Checklist persistence and progress
+  const STORAGE_KEY = 'card-selling-checklist';
+
+  function loadState() {
+    try {
+      const raw = localStorage.getItem(STORAGE_KEY);
+      return raw ? JSON.parse(raw) : {};
+    } catch(e) { return {}; }
+  }
+
+  function saveState(state) {
+    try { localStorage.setItem(STORAGE_KEY, JSON.stringify(state)); } catch(e) {}
+  }
+
+  function updateProgress(group) {
+    const checks = document.querySelectorAll('.checklist[data-group="' + group + '"] input[type="checkbox"]');
+    const total = checks.length;
+    const done = Array.from(checks).filter(c => c.checked).length;
+    const pct = total ? Math.round((done / total) * 100) : 0;
+
+    const textEl = document.querySelector('.progress-text[data-group="' + group + '"]');
+    const fillEl = document.querySelector('.progress-fill[data-group="' + group + '"]');
+
+    if (textEl) textEl.textContent = done + ' / ' + total;
+    if (fillEl) fillEl.style.width = pct + '%';
+  }
+
+  function initChecklists() {
+    const state = loadState();
+    const allChecks = document.querySelectorAll('.checklist input[type="checkbox"]');
+
+    allChecks.forEach(cb => {
+      if (state[cb.id]) {
+        cb.checked = true;
+        var li = cb.closest('li');
+        if (li) li.classList.add('checked');
+      }
+
+      cb.addEventListener('change', () => {
+        const s = loadState();
+        if (cb.checked) {
+          s[cb.id] = true;
+          var li = cb.closest('li');
+          if (li) li.classList.add('checked');
+        } else {
+          delete s[cb.id];
+          var li = cb.closest('li');
+          if (li) li.classList.remove('checked');
+        }
+        saveState(s);
+
+        var cl = cb.closest('.checklist');
+        var group = cl ? cl.dataset.group : null;
+        if (group) updateProgress(group);
+      });
+    });
+
+    ['ebay', 'supplies', 'mercari', 'fb', 'fan', 'other'].forEach(updateProgress);
+  }
+
+  initChecklists();
+</script>
+
+</body>
+</html>
